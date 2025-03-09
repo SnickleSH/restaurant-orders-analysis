@@ -3,13 +3,68 @@ USE restaurant_db;
 -- Objective 1: Explore the items table
 
 -- Task: View the menu_items table and write a query to find the number of items on the menu
-
+SELECT
+	*
+FROM
+	menu_items;
+SELECT 
+	COUNT(*)
+FROM
+	menu_items;
+    
 -- Task: What are the least and most expensive items on the menu?
+SELECT
+	*
+FROM
+	menu_items
+ORDER BY 
+	price ASC
+LIMIT 1;
+
+SELECT
+	*
+FROM
+	menu_items
+ORDER BY 
+	price DESC
+LIMIT 1;
 
 -- Task: How many Italian dishes are on the menu? What are the least and most expensive Italian dishes on the menu?
+SELECT
+	COUNT(*)
+FROM
+	menu_items
+WHERE
+	category = 'Italian';
+    
+SELECT
+	*
+FROM
+	menu_items
+WHERE
+	category = 'Italian'
+ORDER BY 
+	price ASC
+LIMIT 1;
+
+SELECT
+	*
+FROM
+	menu_items
+WHERE
+	category = 'Italian'
+ORDER BY 
+	price DESC
+LIMIT 1;
 
 -- Task: How many dishes are in each category? What is the average dish price within each category?
-
+SELECT
+	category, COUNT(*), AVG(price)
+FROM 
+	menu_items
+GROUP BY
+	category;
+    
 -- Objective 2: Explore the orders table
 
 -- Task: View the order_details table. What is the date range of the table?
